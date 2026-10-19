@@ -1,0 +1,103 @@
+:root {
+  --bg: #080b1d;
+  --panel: #0e1330;
+  --panel-2: #131a3d;
+  --line: #232b57;
+  --text: #eef1ff;
+  --muted: #8892c4;
+  --cyan: #22d3ee;
+  --violet: #6366f1;
+  --amber: #fbbf24;
+  --pink: #f472b6;
+  --green: #34d399;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 30px 16px;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(720px 420px at 12% 0%, rgba(99, 102, 241, 0.14), transparent 65%),
+    radial-gradient(600px 380px at 92% 100%, rgba(34, 211, 238, 0.1), transparent 65%),
+    var(--bg);
+}
+
+.app {
+  width: min(980px, 100%);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 28px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+}
+
+header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
+h1 { font-family: 'Outfit', sans-serif; font-size: 1.5rem; letter-spacing: -0.02em; }
+header p { color: var(--muted); font-size: 0.8rem; margin-top: 4px; }
+
+.counters { display: flex; gap: 8px; }
+.counters span { background: var(--panel-2); border: 1px solid var(--line); border-radius: 9px; padding: 7px 12px; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.counters strong { display: block; font-family: 'Outfit', sans-serif; font-size: 1.05rem; letter-spacing: 0; color: var(--cyan); text-align: center; margin-top: 2px; font-variant-numeric: tabular-nums; }
+
+.controls { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-bottom: 18px; }
+
+.algo { display: flex; gap: 3px; background: var(--panel-2); border: 1px solid var(--line); border-radius: 9px; padding: 3px; }
+.algo button { border: 0; background: transparent; color: var(--muted); font: inherit; font-size: 0.72rem; font-weight: 600; padding: 7px 11px; border-radius: 7px; cursor: pointer; transition: background 0.2s, color 0.2s; }
+.algo button:hover { color: var(--text); }
+.algo button.active { background: var(--violet); color: #ffffff; }
+.algo button:disabled { cursor: default; opacity: 0.6; }
+
+.sliders { display: flex; gap: 16px; }
+.sliders label { display: flex; align-items: center; gap: 7px; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.sliders input { width: 88px; accent-color: var(--cyan); cursor: pointer; }
+.sliders span { min-width: 16px; color: var(--text); font-weight: 600; }
+
+.actions { display: flex; gap: 7px; margin-left: auto; }
+.actions button { border: 1px solid var(--line); background: var(--panel-2); color: var(--text); font: inherit; font-size: 0.76rem; font-weight: 600; padding: 9px 15px; border-radius: 8px; cursor: pointer; transition: border-color 0.2s, background 0.2s, opacity 0.2s; }
+.actions button:hover { border-color: var(--cyan); }
+.actions button.primary { background: var(--cyan); border-color: var(--cyan); color: #06121a; }
+.actions button.primary:hover { background: #06b6d4; border-color: #06b6d4; }
+.actions button:disabled { opacity: 0.45; cursor: default; }
+
+.bars {
+  height: 330px;
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.bar {
+  flex: 1;
+  min-width: 2px;
+  border-radius: 3px 3px 1px 1px;
+  background: linear-gradient(180deg, var(--cyan), var(--violet));
+  transition: height 0.09s linear, background 0.12s;
+}
+
+.bar.comparing { background: var(--amber); }
+.bar.swapping { background: var(--pink); }
+.bar.sorted { background: var(--green); }
+
+.hint { display: flex; align-items: center; justify-content: center; gap: 7px; margin-top: 14px; font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.dot { width: 8px; height: 8px; border-radius: 2px; display: inline-block; }
+.dot.compare { background: var(--amber); }
+.dot.swap { background: var(--pink); }
+.dot.done { background: var(--green); margin-left: 8px; }
+
+@media (max-width: 720px) {
+  .app { padding: 18px; }
+  header { flex-direction: column; }
+  .controls { gap: 10px; }
+  .actions { margin-left: 0; }
+  .bars { height: 240px; gap: 2px; padding: 10px; }
+  .sliders input { width: 70px; }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorting Visualiser</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<main class="app">
+  <header>
+    <div>
+      <h1>Sorting Visualiser</h1>
+      <p>Four algorithms, one bar chart.</p>
+    </div>
+    <div class="counters">
+      <span>Comparisons <strong id="comparisons">0</strong></span>
+      <span>Swaps <strong id="swaps">0</strong></span>
+    </div>
+  </header>
+
+  <div class="controls">
+    <div class="algo" id="algo">
+      <button class="active" data-algo="bubble" type="button">Bubble</button>
+      <button data-algo="selection" type="button">Selection</button>
+      <button data-algo="insertion" type="button">Insertion</button>
+      <button data-algo="quick" type="button">Quick</button>
+    </div>
+
+    <div class="sliders">
+      <label>Size <input type="range" id="size" min="10" max="60" value="22"><span id="sizeValue">22</span></label>
+      <label>Speed <input type="range" id="speed" min="1" max="20" value="17"><span id="speedValue">17</span></label>
+    </div>
+
+    <div class="actions">
+      <button id="startBtn" class="primary" type="button">Sort</button>
+      <button id="shuffleBtn" type="button">Shuffle</button>
+    </div>
+  </div>
+
+  <div class="bars" id="bars" aria-label="Array visualisation"></div>
+
+  <p class="hint"><span class="dot compare"></span> comparing <span class="dot swap"></span> swapping <span class="dot done"></span> sorted</p>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
